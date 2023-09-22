@@ -18,5 +18,13 @@ namespace firstMVCwebAPI.Controllers
         {
             return _context.GetEmployees();
         }
+        [HttpPost]
+        public Employee UpdateEmployee(int id, [FromBody] Employee emp)
+        {
+            emp.EmployeeId = id;
+            Employee savedemp = _context.UpdateEmployee(emp);
+            return savedemp;
+
+        }
     }
 }
